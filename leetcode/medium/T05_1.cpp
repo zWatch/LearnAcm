@@ -42,15 +42,15 @@ using namespace std;
 class Solution {
 public:
     string longestPalindrome(string s) {
-        if(s.size()<=1){
-            return s;
+        if(s.size()==0){
+            return "";
         }
 
         decltype(s.size()) ret_start=0;
         decltype(s.size()) ret_length=1;
         //vector<bitset<1000>> dp;
-        bitset<1000*1000> dp(0);
-        //bitset<> a;
+        bitset<1000*1000> dp;
+        
         dp[0]=1;
         for(int i=1; i<s.size(); i++){
             dp[i*s.size()+i] = 1;
@@ -72,14 +72,16 @@ public:
                      if(ret_length<i-j+1){
                         ret_start=j;
                         ret_length=i-j+1;
-                        if(ret_length>=s.size()-1){
+                        if(ret_length==s.size()){
                             goto ans;
                         }
                     }
+                    
                 }
                 //else{
                 //  dp[i][j]=0;
                 //}
+               
             }
         }
         ans:
@@ -116,18 +118,5 @@ vector<vector<int>> dp;
 */
 int main(){
     Solution s;
-    //std::cout<<s.longestPalindrome("aaaa")<<std::endl;
-    
-    /*
-    vector<bool> a(1000*1000);
-    std::cout<<sizeof(a)<<std::endl;
-    printf("%p", a[0]._Mynextiter);
-
-    std::cout<<()()<<std::endl;
-    std::cout<<&(a[1000*1000])<<std::endl;
-    bitset<1000*1000> b;
-    std::cout<<sizeof(b)<<std::endl;;
-    std::cout<<&b<<std::endl;;
-    std::cout<<&(b[1000*1000])<<std::endl;;
-    */
+    std::cout<<s.longestPalindrome("aaaa")<<std::endl;
 }

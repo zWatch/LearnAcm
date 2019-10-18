@@ -1,4 +1,4 @@
-﻿/*
+/*
  * @lc app=leetcode.cn id=5 lang=cpp
  *
  * [5] 最长回文子串
@@ -35,54 +35,42 @@
 #include <list>
 #include <map>
 #include <stack>
-#include <bitset>
 #include <string>
 #include <algorithm>
 using namespace std;
 class Solution {
 public:
     string longestPalindrome(string s) {
-        if(s.size()<=1){
-            return s;
-        }
-
         decltype(s.size()) ret_start=0;
         decltype(s.size()) ret_length=1;
-        //vector<bitset<1000>> dp;
-        bitset<1000*1000> dp(0);
-        //bitset<> a;
-        dp[0]=1;
-        for(int i=1; i<s.size(); i++){
-            dp[i*s.size()+i] = 1;
-            if(s[i]==s[i-1]){
-                dp[i*s.size()+i-1]=1;
-                ret_start=i-1;
-                ret_length=2;
+        vector<vector<int>> dp;
+        dp.resize(s.size());
+        for(int i=0; i<s.size()-1; i++){
+            dp[i].resize(i+1);
+            dp[i][i] = 1;
+            if(s[i]==s[i+1]){
+                dp[i+1][i]=1;
+                ret_start=i;
             }
             //else{
             //    dp[i+1][i]=0;
             //}
         }
-        
+        dp[s.size()-1].resize(s.size());
+        dp[s.size()-1][s.size()-1]= 1;
+
         for(int i=2; i<s.size(); i++){
-            
-            for(int j=0; j<i-1; j++){
-                if(s[i]==s[j] && dp[(i-1)*s.size()+j+1]==1){
-                    dp[i*s.size()+j]=1;
-                     if(ret_length<i-j+1){
-                        ret_start=j;
-                        ret_length=i-j+1;
-                        if(ret_length>=s.size()-1){
-                            goto ans;
-                        }
-                    }
+            for(int j=0; j<i; j++){
+                if(s[i]==s[j] && dp[i-1][j+1]==1){
+                    dp[i][j]=1;
+                     ret_start=j;
+                     ret_length=i-j+1;
                 }
                 //else{
                 //  dp[i][j]=0;
                 //}
             }
         }
-        ans:
         return string(s.substr(ret_start, ret_length));
     }
 };
@@ -114,20 +102,3 @@ vector<vector<int>> dp;
             }
         }
 */
-int main(){
-    Solution s;
-    //std::cout<<s.longestPalindrome("aaaa")<<std::endl;
-    
-    /*
-    vector<bool> a(1000*1000);
-    std::cout<<sizeof(a)<<std::endl;
-    printf("%p", a[0]._Mynextiter);
-
-    std::cout<<()()<<std::endl;
-    std::cout<<&(a[1000*1000])<<std::endl;
-    bitset<1000*1000> b;
-    std::cout<<sizeof(b)<<std::endl;;
-    std::cout<<&b<<std::endl;;
-    std::cout<<&(b[1000*1000])<<std::endl;;
-    */
-}
