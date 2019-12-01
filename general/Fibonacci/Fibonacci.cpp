@@ -6,7 +6,9 @@
 constexpr int Max_N_TRY = 7;//[log(97)]+1;
 constexpr int LOG_Max_N = Max_N_TRY;
 
-typedef unsigned long long  FibonacciMatrix_INTTYPE;
+//typedef unsigned long long  FibonacciMatrix_INTTYPE;
+typedef uint16_t FibonacciMatrix_INTTYPE;
+
 //typedef long long FibonacciMatrix_INTTYPE;
 
 class FibonacciMatrix{
@@ -115,12 +117,12 @@ void FindMaxFibonacciMatrix_N() {
 		}
 	}
 
-	std::cout << "max: "<< max << endl;
-	std::cout << "max/2: "<< getFibonacciMatrix(real_MAX_N/2) << endl;
-	std::cout << "max+1: "<< getFibonacciMatrix(real_MAX_N+1) << endl;
-	std::cout << "max*2: "<< getFibonacciMatrix(real_MAX_N*2) << endl;
-	std::cout << "MAX_N: " << real_MAX_N << endl;
-	std::cout <<"LOG_MAX_N: " <<log2(real_MAX_N) << endl;
+	std::cout << "max: "<< max << std::endl;
+	std::cout << "max/2: "<< getFibonacciMatrix(real_MAX_N/2) << std::endl;
+	std::cout << "max+1: "<< getFibonacciMatrix(real_MAX_N+1) << std::endl;
+	std::cout << "max*2: "<< getFibonacciMatrix(real_MAX_N*2) << std::endl;
+	std::cout << "MAX_N: " << real_MAX_N << std::endl;
+	std::cout <<"LOG_MAX_N: " <<log2(real_MAX_N) << std::endl;
 }
 
 int FindOverflowPos() {
@@ -136,7 +138,6 @@ int FindOverflowPos() {
 	std::cout<<"FM(ret-1) " <<" FM is : "<< getFibonacciMatrix(ret-1) << std::endl;
 	return 0;
 }
-
 
 void OutPutFibonacciMatrix() {
 	int end = 92 + 1;

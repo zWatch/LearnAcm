@@ -16,6 +16,9 @@ add_executable(leetcode "leetcode/main.cpp")
 
 add_executable(General general/main.cpp)
 
+add_executable(TestCPP testCpp/main.cpp)
+
+#add_subdirectory(Interesting)
 #set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 #set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 #include(CPack)
