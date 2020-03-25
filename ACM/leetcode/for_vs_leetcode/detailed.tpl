@@ -17,5 +17,13 @@ ${comment.line}
 {{ }) }}${comment.end}
 
 ${comment.singleLine} @lc code=start
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <map>
+using namespace std;
+
+
 ${code}
 ${comment.singleLine} @lc code=end

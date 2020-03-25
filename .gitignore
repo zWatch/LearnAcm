@@ -1,6 +1,6 @@
-.vs/*
-.exe/*
-build/*
-.vscode/*
-out/*
-interesting/
+/.vs/
+/.exe/
+/build/
+/.vscode/
+/out/
+/interesting/

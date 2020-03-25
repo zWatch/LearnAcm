@@ -2,7 +2,8 @@
 using namespace std;
 #define DEBUG_IN_MY_COMPUTER 1
 
-#include  "hard/T10.cpp"
+//#include  "hard/T10.cpp"
+#include  "medium/T3.cpp"
 //the main in include_file
 
 //the template

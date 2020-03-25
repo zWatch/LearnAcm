@@ -116,6 +116,7 @@ vector<vector<int>> dp;
             }
         }
 */
+#include <iostream>
 int main(){
     Solution s;
     std::cout<<s.longestPalindrome("aaaa")<<std::endl;
